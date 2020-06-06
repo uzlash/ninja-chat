@@ -1,8 +1,12 @@
 <template>
   <div class="new-message">
     <form @submit.prevent="addMessage">
-      <label for="new-message">New Message (press enter to add): </label>
-      <input type="text" name="new-message" v-model="newMessage" />
+      <div class="field">
+        <label for="new-message">New Message (press enter to add): </label>
+        <input type="text" name="new-message" v-model="newMessage" />
+        <i class="material-icons teal-text send" @click="addMessage">send</i>
+      </div>
+
       <p class="red-text" v-if="feedback">{{ feedback }}</p>
     </form>
   </div>
@@ -40,3 +44,16 @@ export default {
   }
 };
 </script>
+
+<style>
+.field {
+  position: relative;
+}
+.field i {
+  position: absolute;
+  right: 0;
+  bottom: 16px;
+  font-size: 2em;
+  cursor: pointer;
+}
+</style>
